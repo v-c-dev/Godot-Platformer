@@ -39,7 +39,7 @@ alignment = 1
 
 [node name="Label" type="Label" parent="ColorRect/CenterContainer/VBoxContainer"]
 layout_mode = 2
-text = "Jogo Pausado"
+text = "Game Paused"
 horizontal_alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="ColorRect/CenterContainer/VBoxContainer"]
@@ -48,7 +48,7 @@ layout_mode = 2
 
 [node name="MuteMusic" type="CheckBox" parent="ColorRect/CenterContainer/VBoxContainer"]
 layout_mode = 2
-text = "Mute Musica"
+text = "Mute Music"
 
 [node name="MarginContainer2" type="MarginContainer" parent="ColorRect/CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 10)
@@ -64,7 +64,7 @@ layout_mode = 2
 
 [node name="Voltar" type="Button" parent="ColorRect/CenterContainer/VBoxContainer"]
 layout_mode = 2
-text = "Voltar
+text = "Back
 "
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

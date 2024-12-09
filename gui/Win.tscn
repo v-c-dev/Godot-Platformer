@@ -1,10 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://bh0i3sv23noh3"]
+[gd_scene load_steps=4 format=3 uid="uid://dcfb5pf47v5jj"]
 
-[ext_resource type="FontFile" uid="uid://wqrno8lackrm" path="res://gui/kenney_mini_square.ttf" id="1_nwwru"]
-[ext_resource type="Script" path="res://game_over.gd" id="2_em0ka"]
+[ext_resource type="FontFile" uid="uid://wqrno8lackrm" path="res://gui/kenney_mini_square.ttf" id="1_bh5yo"]
+[ext_resource type="Script" path="res://gui/game_over.gd" id="2_1rk38"]
 
 [sub_resource type="Theme" id="Theme_qod36"]
-default_font = ExtResource("1_nwwru")
+default_font = ExtResource("1_bh5yo")
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -14,7 +14,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_qod36")
-script = ExtResource("2_em0ka")
+script = ExtResource("2_1rk38")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -39,7 +39,7 @@ alignment = 1
 
 [node name="Label" type="Label" parent="ColorRect/CenterContainer/VBoxContainer"]
 layout_mode = 2
-text = "GAME OVER"
+text = "YOU WIN"
 horizontal_alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="ColorRect/CenterContainer/VBoxContainer"]
@@ -48,11 +48,11 @@ layout_mode = 2
 
 [node name="Start" type="Button" parent="ColorRect/CenterContainer/VBoxContainer"]
 layout_mode = 2
-text = "Tentar Novamente"
+text = "Play Again"
 
 [node name="Quit" type="Button" parent="ColorRect/CenterContainer/VBoxContainer"]
 layout_mode = 2
-text = "Sair
+text = "Quit
 "
 
 [connection signal="pressed" from="ColorRect/CenterContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]
