@@ -1,0 +1,14 @@
+Sprite2D
+AnimationPlayer
+CollisionPolygon2D
+Area2D
+Timer
+ProgressBar
+GPUParticles2D
+HBoxContainer
+VBoxContainer
+Button
+CheckBox
+AudioStreamPlayer
+Label
+ItemList

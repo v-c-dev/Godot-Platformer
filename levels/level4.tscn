@@ -1,0 +1,1692 @@
+[gd_scene load_steps=26 format=3 uid="uid://0cldx2sp60c1"]
+
+[ext_resource type="TileSet" uid="uid://08mkofgbxx70" path="res://levels/tileset.tres" id="1_1bb31"]
+[ext_resource type="PackedScene" uid="uid://bba6y4nkelp35" path="res://levels/background/end_parallax_background.tscn" id="2_bbef8"]
+[ext_resource type="PackedScene" uid="uid://cky6e5nl0nyod" path="res://levels/platforms/platform.tscn" id="3_onitq"]
+[ext_resource type="Material" uid="uid://djwm5nol3d801" path="res://levels/props/wind_sway.tres" id="4_uv731"]
+[ext_resource type="Texture2D" uid="uid://upfcr5xg5fvh" path="res://levels/props/grass_3.webp" id="5_vtqpn"]
+[ext_resource type="Texture2D" uid="uid://bju7r7jqn8bqy" path="res://levels/props/grass_2.webp" id="6_2tkrj"]
+[ext_resource type="Texture2D" uid="uid://c5xpotfxdi0ms" path="res://levels/props/fern_1.webp" id="7_2h4au"]
+[ext_resource type="Texture2D" uid="uid://bj6am5nfc0k73" path="res://levels/props/grass_1.webp" id="8_mh4cr"]
+[ext_resource type="Texture2D" uid="uid://bu54lwrkcng25" path="res://levels/props/vine_2.webp" id="9_05tp3"]
+[ext_resource type="Texture2D" uid="uid://bvu4vgnc84r84" path="res://levels/props/vine_1.webp" id="10_0lvdf"]
+[ext_resource type="Texture2D" uid="uid://ddmq5iwm2qd1j" path="res://levels/props/flower_1.webp" id="11_up6vs"]
+[ext_resource type="Texture2D" uid="uid://crfy1osk1c1gc" path="res://levels/props/ground_flowers_1.webp" id="12_7pfaa"]
+[ext_resource type="PackedScene" uid="uid://c3dh7xb6ef76q" path="res://levels/coin.tscn" id="13_pr4ad"]
+[ext_resource type="PackedScene" uid="uid://6mtip3ruyn" path="res://enemy/enemy.tscn" id="15_riqax"]
+[ext_resource type="Texture2D" uid="uid://icddaryasunc" path="res://levels/props/tree_1.webp" id="16_jpq0t"]
+[ext_resource type="Texture2D" uid="uid://dea1a76o6b0ix" path="res://levels/props/tree_2.webp" id="17_xvrms"]
+[ext_resource type="Texture2D" uid="uid://cqydct6vajobg" path="res://levels/props/bush_1.webp" id="18_54isp"]
+[ext_resource type="PackedScene" uid="uid://cob5gx3qb640h" path="res://player/hostage.tscn" id="19_6hydk"]
+[ext_resource type="Texture2D" uid="uid://co8bwstg3ea6x" path="res://levels/props/rock_1.webp" id="19_daexe"]
+
+[sub_resource type="Animation" id="Animation_kqqvc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1009, 236)]
+}
+
+[sub_resource type="Animation" id="Animation_78qs5"]
+resource_name = "move"
+length = 6.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3, 5.96667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1242, 640), Vector2(1009, 236), Vector2(1242, 640)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_soprt"]
+_data = {
+"RESET": SubResource("Animation_kqqvc"),
+"move": SubResource("Animation_78qs5")
+}
+
+[sub_resource type="Animation" id="Animation_12nml"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(835, -156)]
+}
+
+[sub_resource type="Animation" id="Animation_jlicw"]
+resource_name = "move"
+length = 6.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3, 6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(364, -108), Vector2(835, -156), Vector2(364, -108)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_muxxu"]
+_data = {
+"RESET": SubResource("Animation_12nml"),
+"move": SubResource("Animation_jlicw")
+}
+
+[node name="Level4" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+z_index = 1
+tile_set = ExtResource("1_1bb31")
+rendering_quadrant_size = 32
+format = 2
+layer_0/tile_data = PackedInt32Array(720887, 6, 0, 720891, 0, 0, 720892, 0, 0, 720893, 0, 0, 720894, 13, 0, 720895, 11, 0, 655360, 11, 0, 655361, 0, 0, 655362, 13, 0, 655363, 11, 0, 655365, 13, 0, 655366, 11, 0, 655367, 13, 0, 655368, 0, 0, 655369, 0, 0, 655375, 0, 0, 655376, 0, 0, 655377, 0, 0, 655378, 0, 0, 655379, 0, 0, 786423, 6, 0, 786424, 6, 0, 786425, 6, 0, 786426, 6, 0, 786427, 6, 0, 786428, 6, 0, 786429, 6, 0, 786430, 6, 0, 786431, 6, 0, 720896, 18, 0, 720897, 6, 0, 720898, 18, 0, 720899, 6, 0, 720901, 6, 0, 720902, 6, 0, 720903, 6, 0, 720904, 18, 65536, 720905, 18, 0, 720906, 6, 0, 720907, 6, 0, 720908, 18, 65536, 720909, 6, 0, 720910, 6, 65536, 720911, 6, 65536, 720912, 6, 0, 720913, 6, 0, 720914, 6, 0, 720915, 6, 0, 851959, 6, 0, 851960, 6, 0, 851961, 6, 0, 851962, 6, 0, 851963, 6, 0, 851964, 14, 65536, 851965, 14, 65536, 851966, 14, 0, 851967, 14, 0, 786432, 14, 0, 786433, 14, 0, 786434, 14, 0, 786435, 14, 0, 786437, 18, 0, 786438, 14, 0, 786439, 14, 0, 786440, 14, 0, 786441, 14, 0, 786442, 14, 0, 786443, 14, 0, 786444, 14, 0, 786445, 14, 0, 786446, 6, 65536, 786447, 6, 65536, 786448, 6, 0, 786449, 6, 0, 786450, 6, 0, 786451, 6, 0, 655364, 0, 0, 720900, 6, 0, 786436, 6, 0, 720886, 6, 0, 786422, 18, 0, 851958, 18, 0, 851957, 18, 0, 851956, 18, 0, 851955, 18, 0, 720885, 0, 0, 786421, 18, 0, 786420, 18, 0, 720884, 0, 0, 720883, 0, 0, 786419, 18, 0, 655380, 0, 0, 720916, 18, 0, 786452, 18, 0, 655381, 6, 0, 720917, 18, 0, 786453, 18, 0, 655382, 0, 0, 720918, 18, 0, 786454, 18, 0, 655383, 0, 0, 720919, 18, 0, 786455, 18, 0, 655372, 0, 0, 655373, 0, 0, 655374, 0, 0, 655384, 6, 0, 720882, 0, 0, -196618, 6, 0, -131082, 7, 65536, -65546, 7, 65536, -10, 7, 65536, 65526, 6, 0, 131062, 7, 65536, 196598, 7, 65536, 262134, 7, 65536, 327670, 6, 0, 393206, 7, 65536, 458742, 7, 65536, 524278, 7, 65536, 589814, 6, 0, 655350, 7, 65536, -196617, 7, 0, -131081, 7, 0, -65545, 7, 0, -9, 6, 0, 65527, 7, 0, 131063, 7, 0, 196599, 7, 0, 262135, 7, 0, 327671, 7, 0, 458743, 7, 0, 524279, 7, 0, 589815, 6, 0, 655351, 7, 0, -8, 0, 0, 786416, 6, 0, 851952, 6, 0, 786417, 6, 0, 851953, 6, 0, 786418, 6, 0, 851954, 6, 0, -458768, 6, 0, -393232, 6, 0, -327696, 6, 0, -262160, 6, 0, -196624, 6, 0, -131088, 6, 0, -65552, 6, 0, -16, 6, 0, 65520, 6, 0, 131056, 6, 0, 196592, 6, 0, 262128, 6, 0, 327664, 6, 0, 393200, 6, 0, 458736, 6, 0, 524272, 6, 0, 589808, 6, 0, 655344, 6, 0, 720880, 6, 0, -458767, 7, 0, -393231, 7, 0, -327695, 7, 0, -262159, 7, 0, -196623, 7, 0, -131087, 7, 0, -65551, 6, 0, -15, 7, 0, 65521, 7, 0, 131057, 7, 0, 196593, 6, 0, 262129, 7, 0, 327665, 7, 0, 393201, 7, 0, 458737, 6, 0, 524273, 7, 0, 589809, 7, 0, 655345, 7, 0, 720881, 6, 0, 589813, 4, 65536, 458738, 4, 0, 327669, 4, 65536, 196594, 4, 0, 65525, 4, 65536, -65550, 4, 0, -7, 0, 0, 262140, 6, 0, 458745, 16, 65536, 393207, 7, 0, 720890, 0, 0, 720889, 0, 0, 720888, 0, 0, 327676, 14, 0, -131077, 15, 0, -131079, 16, 65536, -131078, 14, 0, -196615, 7, 65536, -262151, 7, 65536, -327687, 7, 65536, -393223, 7, 65536, -458759, 7, 65536, 327673, 7, 65536, 262137, 7, 65536, 327675, 14, 0, 458747, 2, 0, 262141, 6, 0, 196605, 7, 0, 393213, 7, 0, 327677, 7, 0, 458749, 7, 0, 524285, 7, 0, 393209, 7, 65536, -196614, 6, 0, -6, 0, 0, 262138, 6, 0, 327674, 14, 0, -196613, 6, 0, 262139, 6, 0, 524283, 7, 0, 589819, 16, 0, -196612, 6, 0, -131076, 6, 0, -196611, 7, 0, -131075, 7, 0, -65539, 7, 0, -3, 7, 0, 65533, 6, 0, 131069, 7, 0, 589821, 16, 0, 589816, 0, 0, 589817, 0, 0, 589818, 0, 0, 196601, 7, 65536, -5, 2, 0, 196602, 0, 0, 196603, 0, 0, 196604, 0, 0, 131065, 2, 65536, 65531, 16, 0, 524312, 6, 0, 24, 6, 0, 65560, 6, 0, 131096, 6, 0, 196632, 6, 0, 262168, 6, 0, 327704, 6, 0, 393240, 6, 0, 458776, 6, 0, 589848, 6, 0, -327656, 6, 0, -262120, 6, 0, -196584, 6, 0, -131048, 6, 0, -65512, 6, 0, -262153, 7, 0, -262154, 7, 65536, 720920, 6, 0, 786456, 6, 0, -65511, 6, 0, 25, 6, 0, 65561, 6, 0, 131097, 6, 0, 196633, 6, 0, 262169, 6, 0, 327705, 6, 0, 393241, 6, 0, 458777, 6, 0, 524313, 6, 0, 589849, 6, 0, 655385, 6, 0, 720921, 6, 0, 786457, 6, 0, -65510, 6, 0, 26, 6, 0, 65562, 6, 0, 131098, 6, 0, 196634, 6, 0, 262170, 6, 0, 327706, 6, 0, 393242, 6, 0, 458778, 6, 0, 524314, 6, 0, 589850, 6, 0, 655386, 6, 0, 720922, 6, 0, 786458, 6, 0, -65509, 6, 0, 27, 6, 0, 65563, 6, 0, 131099, 6, 0, 196635, 6, 0, 262171, 6, 0, 327707, 6, 0, 393243, 6, 0, 458779, 6, 0, 524315, 6, 0, 589851, 6, 0, 655387, 6, 0, 720923, 6, 0, 786459, 6, 0, -65508, 6, 0, 28, 6, 0, 65564, 6, 0, 131100, 6, 0, 196636, 6, 0, 262172, 6, 0, 327708, 6, 0, 393244, 6, 0, 458780, 6, 0, 524316, 6, 0, 589852, 6, 0, 655388, 6, 0, 720924, 6, 0, 786460, 6, 0, -65507, 6, 0, 29, 6, 0, 65565, 6, 0, 131101, 6, 0, 196637, 6, 0, 262173, 6, 0, 327709, 6, 0, 393245, 6, 0, 458781, 6, 0, 524317, 6, 0, 589853, 6, 0, 655389, 6, 0, 720925, 6, 0, 786461, 6, 0, -327655, 6, 0, -262119, 6, 0, -196583, 6, 0, -131047, 6, 0, -327654, 6, 0, -262118, 6, 0, -196582, 6, 0, -131046, 6, 0, -327653, 6, 0, -262117, 6, 0, -196581, 6, 0, -131045, 6, 0, -327652, 6, 0, -262116, 6, 0, -196580, 6, 0, -131044, 6, 0, -327651, 6, 0, -262115, 6, 0, -196579, 6, 0, -131043, 6, 0, 851971, 6, 0, 917507, 6, 0, 851972, 6, 0, 917508, 6, 0, 851973, 6, 0, 917509, 6, 0, 851974, 6, 0, 917510, 6, 0, 851975, 6, 0, 917511, 6, 0, 851976, 6, 0, 917512, 6, 0, 851977, 6, 0, 917513, 6, 0, 851978, 6, 0, 917514, 6, 0, 851979, 6, 0, 917515, 6, 0, 851980, 6, 0, 917516, 6, 0, 851981, 6, 0, 917517, 6, 0, 851982, 6, 0, 917518, 6, 0, 851983, 6, 0, 917519, 6, 0, 851984, 6, 0, 917520, 6, 0, 851985, 6, 0, 917521, 6, 0, 851986, 6, 0, 917522, 6, 0, 851987, 6, 0, 917523, 6, 0, 851988, 6, 0, 917524, 6, 0, 851989, 6, 0, 917525, 6, 0, 851990, 6, 0, 917526, 6, 0, 851991, 6, 0, 917527, 6, 0, 851992, 6, 0, 917528, 6, 0, 851993, 6, 0, 917529, 6, 0, 851994, 6, 0, 917530, 6, 0, 851995, 6, 0, 917531, 6, 0, 851996, 6, 0, 917532, 6, 0, 851997, 6, 0, 917533, 6, 0, 917488, 6, 0, 983024, 6, 0, 917489, 6, 0, 983025, 6, 0, 917490, 6, 0, 983026, 6, 0, 917491, 6, 0, 983027, 6, 0, 917492, 6, 0, 983028, 6, 0, 917493, 6, 0, 983029, 6, 0, 917494, 6, 0, 983030, 6, 0, 917495, 6, 0, 983031, 6, 0, 917496, 6, 0, 983032, 6, 0, 917497, 6, 0, 983033, 6, 0, 917498, 6, 0, 983034, 6, 0, 917499, 6, 0, 983035, 6, 0, 917500, 6, 0, 983036, 6, 0, 917501, 6, 0, 983037, 6, 0, 917502, 6, 0, 983038, 6, 0, 917503, 6, 0, 983039, 6, 0, 851968, 6, 0, 917504, 6, 0, 851969, 6, 0, 917505, 6, 0, 851970, 6, 0, 917506, 6, 0, 196589, 6, 0, 262125, 6, 0, 327661, 6, 0, 393197, 6, 0, 458733, 6, 0, 524269, 6, 0, 589805, 6, 0, 655341, 6, 0, 720877, 6, 0, 786413, 6, 0, 851949, 6, 0, 917485, 6, 0, 983021, 6, 0, 196590, 6, 0, 262126, 6, 0, 327662, 6, 0, 393198, 6, 0, 458734, 6, 0, 524270, 6, 0, 589806, 6, 0, 655342, 6, 0, 720878, 6, 0, 786414, 6, 0, 851950, 6, 0, 917486, 6, 0, 983022, 6, 0, 196591, 6, 0, 262127, 6, 0, 327663, 6, 0, 393199, 6, 0, 458735, 6, 0, 524271, 6, 0, 589807, 6, 0, 655343, 6, 0, 720879, 6, 0, 786415, 6, 0, 851951, 6, 0, 917487, 6, 0, 983023, 6, 0, -458771, 6, 0, -393235, 6, 0, -327699, 6, 0, -262163, 6, 0, -196627, 6, 0, -131091, 6, 0, -65555, 6, 0, -19, 6, 0, 65517, 6, 0, 131053, 6, 0, -458770, 6, 0, -393234, 6, 0, -327698, 6, 0, -262162, 6, 0, -196626, 6, 0, -131090, 6, 0, -65554, 6, 0, -18, 6, 0, 65518, 6, 0, 131054, 6, 0, -458769, 6, 0, -393233, 6, 0, -327697, 6, 0, -262161, 6, 0, -196625, 6, 0, -131089, 6, 0, -65553, 6, 0, -17, 6, 0, 65519, 6, 0, 131055, 6, 0, -524307, 6, 0, -524306, 6, 0, -524305, 6, 0, -524304, 6, 0, -524303, 7, 0, -524295, 7, 65536, 655370, 0, 0, 655371, 0, 0, 327680, 4, 65536, 196620, 4, 65536, 196621, 4, 0, 327681, 3, 0, 262142, 4, 0, 65537, 4, 0, 65536, 4, 65536, 65534, 4, 0, -131072, 4, 65536, -131071, 3, 0, -131070, 3, 0, -131069, 4, 0, -196593, 4, 65536, -196592, 3, 0, 262152, 4, 0, 262151, 4, 65536, 327683, 4, 0, 327682, 3, 0, 65559, 4, 65536, 327703, 4, 65536, -131051, 7, 65536, 196629, 7, 65536, 458773, 7, 65536, -262123, 0, 0, -196587, 7, 65536, -65515, 7, 65536, 21, 7, 65536, 65557, 7, 65536, 131093, 7, 65536, 262165, 7, 65536, 327701, 7, 65536, 393237, 7, 65536, 524309, 7, 65536, 589845, 7, 65536, -131050, 4, 0, 196630, 4, 0, 458774, 4, 0, -393192, 6, 0, -458728, 6, 0, -524264, 6, 0, -589800, 6, 0, -589799, 6, 0, -589798, 6, 0, -589797, 6, 0, -589796, 6, 0, -589795, 6, 0, -524259, 6, 0, -458723, 6, 0, -393187, 6, 0, -393188, 6, 0, -393189, 6, 0, -393190, 6, 0, -393191, 6, 0, -458727, 6, 0, -458726, 6, 0, -458725, 6, 0, -458724, 6, 0, -524260, 6, 0, -524261, 6, 0, -524262, 6, 0, -524263, 6, 0, -196591, 3, 0, -196590, 4, 0, -196619, 4, 65536, -327686, 0, 0, -327685, 0, 0, -327684, 0, 0, -327683, 2, 0, -262150, 6, 0, -262149, 6, 0, -262148, 6, 0, -262147, 6, 0, -327689, 2, 0, -327690, 2, 65536, -589831, 7, 65536, -655367, 7, 65536, -720903, 7, 65536, -786439, 7, 65536, -851975, 7, 65536, -589839, 7, 0, -655375, 7, 0, -720911, 7, 0, -786447, 7, 0, -851983, 7, 0, -589840, 6, 0, -655376, 6, 0, -720912, 6, 0, -786448, 6, 0, -589841, 6, 0, -655377, 6, 0, -720913, 6, 0, -786449, 6, 0, -589842, 6, 0, -655378, 6, 0, -720914, 6, 0, -786450, 6, 0, -589843, 6, 0, -655379, 6, 0, -720915, 6, 0, -786451, 6, 0, -851987, 6, 0, -917523, 6, 0)
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("2_bbef8")]
+
+[node name="Trophy" type="Node" parent="."]
+
+[node name="Grass" type="Node" parent="."]
+
+[node name="g58" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(-369, 641)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_vtqpn")
+
+[node name="g63" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(169, -127)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_vtqpn")
+
+[node name="g65" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(215, -126)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_vtqpn")
+
+[node name="g60" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(148, -128)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_vtqpn")
+
+[node name="g23" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(-301.2, 129.809)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_vtqpn")
+
+[node name="g41" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(56.0001, -135)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_vtqpn")
+
+[node name="g48" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(933.8, 637)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_vtqpn")
+
+[node name="g44" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(851.8, 635)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_vtqpn")
+
+[node name="g12" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(-420, 639)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_vtqpn")
+
+[node name="g40" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(105, -137)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_vtqpn")
+
+[node name="g46" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(888.8, 637)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_vtqpn")
+
+[node name="g43" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(898.8, 636)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_vtqpn")
+
+[node name="g9" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(-277.2, 129.809)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_vtqpn")
+
+[node name="g18" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(-167.25, 637)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_vtqpn")
+
+[node name="g21" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(-291.2, 131.809)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_vtqpn")
+
+[node name="g22" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(-291.2, 131.809)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_vtqpn")
+
+[node name="g6" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(-485.2, 506.809)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_vtqpn")
+
+[node name="g16" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(-189.25, 636)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_vtqpn")
+
+[node name="g2" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(-469, 636)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("6_2tkrj")
+
+[node name="g39" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(71.0001, -139)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("6_2tkrj")
+
+[node name="g47" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(946.8, 635)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("6_2tkrj")
+
+[node name="g42" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(117, -135)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("6_2tkrj")
+
+[node name="g45" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(862.8, 636)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("6_2tkrj")
+
+[node name="g59" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(-358, 638)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("6_2tkrj")
+
+[node name="g64" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(180, -129)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("6_2tkrj")
+
+[node name="g66" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(227, -128)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("6_2tkrj")
+
+[node name="f2" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(152, -139)
+texture = ExtResource("7_2h4au")
+
+[node name="f5" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(834.8, 625)
+texture = ExtResource("7_2h4au")
+
+[node name="F5" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(1028.8, 624)
+texture = ExtResource("7_2h4au")
+
+[node name="g20" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(-139.25, 636)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("6_2tkrj")
+
+[node name="g17" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(-177.25, 633)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("6_2tkrj")
+
+[node name="g67" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(-496.2, 507.809)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("8_mh4cr")
+
+[node name="g49" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(838.8, 634)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("8_mh4cr")
+
+[node name="g50" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(957.8, 636)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("8_mh4cr")
+
+[node name="g4" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(-378, 637)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("8_mh4cr")
+
+[node name="g61" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(159, -129)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("8_mh4cr")
+
+[node name="g62" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(135, -129)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("8_mh4cr")
+
+[node name="g11" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(-427, 637)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("8_mh4cr")
+
+[node name="g10" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(-482, 636)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("8_mh4cr")
+
+[node name="v45" type="Sprite2D" parent="Grass"]
+z_index = 1
+material = ExtResource("4_uv731")
+position = Vector2(1003, 687)
+scale = Vector2(1, -1)
+texture = ExtResource("9_05tp3")
+
+[node name="v48" type="Sprite2D" parent="Grass"]
+z_index = 1
+material = ExtResource("4_uv731")
+position = Vector2(41, 713)
+scale = Vector2(1, -1)
+texture = ExtResource("9_05tp3")
+
+[node name="g5" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(-266.2, 126.809)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("8_mh4cr")
+
+[node name="g19" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(-157.25, 636)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("8_mh4cr")
+
+[node name="g15" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(-199.25, 634)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("8_mh4cr")
+
+[node name="v50" type="Sprite2D" parent="Grass"]
+z_index = 1
+material = ExtResource("4_uv731")
+position = Vector2(41, 675)
+scale = Vector2(1, -1)
+texture = ExtResource("10_0lvdf")
+
+[node name="v51" type="Sprite2D" parent="Grass"]
+z_index = 1
+material = ExtResource("4_uv731")
+position = Vector2(57, 689)
+scale = Vector2(1, -1)
+texture = ExtResource("9_05tp3")
+
+[node name="g70" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(-331, 639)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_vtqpn")
+
+[node name="g73" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(-320, 638)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("8_mh4cr")
+
+[node name="g74" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(-344, 638)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("8_mh4cr")
+
+[node name="v46" type="Sprite2D" parent="Grass"]
+z_index = 1
+material = ExtResource("4_uv731")
+position = Vector2(-335, 697)
+scale = Vector2(1, -1)
+texture = ExtResource("9_05tp3")
+
+[node name="g29" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(-343.2, 130.809)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_vtqpn")
+
+[node name="g30" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(-369.2, 511.8)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_vtqpn")
+
+[node name="g31" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(-315.2, 129.809)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("6_2tkrj")
+
+[node name="g33" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(-333.2, 129.809)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("8_mh4cr")
+
+[node name="g34" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(-379.2, 509.8)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("8_mh4cr")
+
+[node name="g35" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(-215.2, 124.809)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_vtqpn")
+
+[node name="g36" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(-237.2, 123.809)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_vtqpn")
+
+[node name="g38" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(-225.2, 120.809)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("6_2tkrj")
+
+[node name="g52" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(-234.246, 122.009)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("8_mh4cr")
+
+[node name="g82" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(-383.2, -77.2)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("8_mh4cr")
+
+[node name="g85" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(-422, 515.009)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_vtqpn")
+
+[node name="g86" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(-444, 514.009)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_vtqpn")
+
+[node name="g88" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(-432, 511.009)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("6_2tkrj")
+
+[node name="g90" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(-454, 512.009)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("8_mh4cr")
+
+[node name="g97" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(-399.2, -62.4)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_vtqpn")
+
+[node name="g98" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(-375.2, -62.4)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_vtqpn")
+
+[node name="g99" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(-389.2, -60.4)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_vtqpn")
+
+[node name="g100" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(-389.2, -60.4)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_vtqpn")
+
+[node name="g101" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(995.8, -200.191)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_vtqpn")
+
+[node name="g102" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(-337.2, -68.391)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("8_mh4cr")
+
+[node name="g103" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(-364.2, -65.4)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("8_mh4cr")
+
+[node name="g104" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(-441.2, -61.4)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_vtqpn")
+
+[node name="g105" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(-463.2, -62.4)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_vtqpn")
+
+[node name="g106" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(-413.2, -62.4)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("6_2tkrj")
+
+[node name="g107" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(-451.2, -65.4)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("6_2tkrj")
+
+[node name="g108" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(-431.2, -62.4)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("8_mh4cr")
+
+[node name="g109" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(-473.2, -64.4)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("8_mh4cr")
+
+[node name="g110" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(1059, -191.991)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_vtqpn")
+
+[node name="g111" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(1037, -192.991)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_vtqpn")
+
+[node name="g112" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(1049, -195.991)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("6_2tkrj")
+
+[node name="g113" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(1027, -194.991)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("8_mh4cr")
+
+[node name="g125" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(553.846, 247.8)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_vtqpn")
+
+[node name="g126" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(542.846, 248.8)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("8_mh4cr")
+
+[node name="g127" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(818.8, 191.8)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_vtqpn")
+
+[node name="g128" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(796.8, 190.8)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_vtqpn")
+
+[node name="g129" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(808.8, 187.8)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("6_2tkrj")
+
+[node name="g130" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(786.8, 188.8)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("8_mh4cr")
+
+[node name="g131" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(495.8, 258.991)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_vtqpn")
+
+[node name="g132" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(473.8, 257.991)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_vtqpn")
+
+[node name="g133" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(523.8, 257.991)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("6_2tkrj")
+
+[node name="g134" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(485.8, 254.991)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("6_2tkrj")
+
+[node name="g135" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(505.8, 257.991)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("8_mh4cr")
+
+[node name="g136" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(463.8, 255.991)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("8_mh4cr")
+
+[node name="g137" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(7.80001, 631)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("8_mh4cr")
+
+[node name="g145" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(-805.2, 636.8)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_vtqpn")
+
+[node name="g146" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(-781.2, 636.8)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_vtqpn")
+
+[node name="g147" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(-795.2, 638.8)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_vtqpn")
+
+[node name="g148" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(-795.2, 638.8)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_vtqpn")
+
+[node name="g149" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(-770.2, 633.8)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("8_mh4cr")
+
+[node name="g150" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(-847.2, 637.8)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_vtqpn")
+
+[node name="g151" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(-869.2, 636.8)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_vtqpn")
+
+[node name="g152" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(-819.2, 636.8)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("6_2tkrj")
+
+[node name="g153" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(-857.2, 633.8)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("6_2tkrj")
+
+[node name="g154" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(-837.2, 636.8)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("8_mh4cr")
+
+[node name="g155" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(-879.2, 634.8)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("8_mh4cr")
+
+[node name="g162" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(184, 318)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_vtqpn")
+
+[node name="g163" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(133, 316)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_vtqpn")
+
+[node name="g166" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(84, 313)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("6_2tkrj")
+
+[node name="g167" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(195, 315)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("6_2tkrj")
+
+[node name="g170" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(175, 314)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("8_mh4cr")
+
+[node name="g171" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(126, 314)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("8_mh4cr")
+
+[node name="g172" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(71, 313)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("8_mh4cr")
+
+[node name="g175" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(222, 316)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_vtqpn")
+
+[node name="g176" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(233, 315)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("8_mh4cr")
+
+[node name="g177" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(209, 315)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("8_mh4cr")
+
+[node name="v54" type="Sprite2D" parent="Grass"]
+z_index = 1
+material = ExtResource("4_uv731")
+position = Vector2(1432, 495)
+scale = Vector2(1, -1)
+texture = ExtResource("9_05tp3")
+
+[node name="g185" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(-666, 635)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_vtqpn")
+
+[node name="g186" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(-655, 634)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("8_mh4cr")
+
+[node name="g187" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(-679, 634)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("8_mh4cr")
+
+[node name="v55" type="Sprite2D" parent="Grass"]
+z_index = 1
+material = ExtResource("4_uv731")
+position = Vector2(-658, 689)
+scale = Vector2(1, -1)
+texture = ExtResource("9_05tp3")
+
+[node name="g205" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(-296.2, -382.933)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_vtqpn")
+
+[node name="g206" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(-272.2, -382.933)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_vtqpn")
+
+[node name="g207" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(-286.2, -380.933)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_vtqpn")
+
+[node name="g208" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(-286.2, -380.933)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_vtqpn")
+
+[node name="g209" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(-261.2, -385.933)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("8_mh4cr")
+
+[node name="g210" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(-338.2, -381.933)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_vtqpn")
+
+[node name="g211" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(-360.2, -382.933)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_vtqpn")
+
+[node name="g212" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(-310.2, -382.933)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("6_2tkrj")
+
+[node name="g213" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(-348.2, -385.933)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("6_2tkrj")
+
+[node name="g214" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(-328.2, -382.933)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("8_mh4cr")
+
+[node name="g215" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(-370.2, -384.933)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("8_mh4cr")
+
+[node name="g216" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(-163.2, -389.923)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_vtqpn")
+
+[node name="g217" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(-174.2, -388.923)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("8_mh4cr")
+
+[node name="g239" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(-704, 637)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_vtqpn")
+
+[node name="g242" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(-693, 634)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("6_2tkrj")
+
+[node name="g243" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(-713, 633)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("8_mh4cr")
+
+[node name="g279" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(483.6, 637.8)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("6_2tkrj")
+
+[node name="g280" type="Sprite2D" parent="Grass"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(419.8, 638)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("8_mh4cr")
+
+[node name="v57" type="Sprite2D" parent="Grass"]
+z_index = 1
+material = ExtResource("4_uv731")
+position = Vector2(821, 680)
+scale = Vector2(1, -1)
+texture = ExtResource("10_0lvdf")
+
+[node name="v58" type="Sprite2D" parent="Grass"]
+z_index = 1
+material = ExtResource("4_uv731")
+position = Vector2(832, 690)
+scale = Vector2(1, -1)
+texture = ExtResource("9_05tp3")
+
+[node name="v59" type="Sprite2D" parent="Grass"]
+z_index = 1
+material = ExtResource("4_uv731")
+position = Vector2(864, 233)
+scale = Vector2(1, -1)
+texture = ExtResource("10_0lvdf")
+
+[node name="v60" type="Sprite2D" parent="Grass"]
+z_index = 1
+material = ExtResource("4_uv731")
+position = Vector2(875, 243)
+scale = Vector2(1, -1)
+texture = ExtResource("9_05tp3")
+
+[node name="v64" type="Sprite2D" parent="Grass"]
+z_index = 1
+material = ExtResource("4_uv731")
+position = Vector2(-278, -335)
+scale = Vector2(1, -1)
+texture = ExtResource("9_05tp3")
+
+[node name="Flowers" type="Node" parent="."]
+
+[node name="Flower1" type="Sprite2D" parent="Flowers"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(-430, 637)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("11_up6vs")
+
+[node name="Flower9" type="Sprite2D" parent="Flowers"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(194, -131)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("11_up6vs")
+
+[node name="Flower10" type="Sprite2D" parent="Flowers"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(811.8, 634)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("11_up6vs")
+
+[node name="Flower11" type="Sprite2D" parent="Flowers"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(907.8, 635)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("11_up6vs")
+
+[node name="Flower14" type="Sprite2D" parent="Flowers"]
+z_index = 1
+position = Vector2(-374, 651)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("12_7pfaa")
+
+[node name="Flower15" type="Sprite2D" parent="Flowers"]
+z_index = 1
+position = Vector2(1074, 647)
+scale = Vector2(-0.8, 0.8)
+texture = ExtResource("12_7pfaa")
+
+[node name="Flower16" type="Sprite2D" parent="Flowers"]
+z_index = 1
+position = Vector2(907.8, 645)
+scale = Vector2(-0.8, 0.8)
+texture = ExtResource("12_7pfaa")
+
+[node name="Flower17" type="Sprite2D" parent="Flowers"]
+z_index = 1
+position = Vector2(920.8, 649)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("12_7pfaa")
+
+[node name="Flower6" type="Sprite2D" parent="Flowers"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(-148.25, 634)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("11_up6vs")
+
+[node name="Flower18" type="Sprite2D" parent="Flowers"]
+z_index = 1
+position = Vector2(16.0001, -124)
+rotation = -3.14159
+scale = Vector2(0.8, -0.8)
+texture = ExtResource("12_7pfaa")
+
+[node name="Flower7" type="Sprite2D" parent="Flowers"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(-324.2, 127.809)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("11_up6vs")
+
+[node name="Flower21" type="Sprite2D" parent="Flowers"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(-422.2, -64.4)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("11_up6vs")
+
+[node name="Flower23" type="Sprite2D" parent="Flowers"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(514.8, 255.991)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("11_up6vs")
+
+[node name="Flower25" type="Sprite2D" parent="Flowers"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(-828.2, 634.8)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("11_up6vs")
+
+[node name="Flower26" type="Sprite2D" parent="Flowers"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(123, 314)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("11_up6vs")
+
+[node name="Flower27" type="Sprite2D" parent="Flowers"]
+z_index = 1
+position = Vector2(179, 328)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("12_7pfaa")
+
+[node name="Flower32" type="Sprite2D" parent="Flowers"]
+z_index = -1
+material = ExtResource("4_uv731")
+position = Vector2(-319.2, -384.933)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("11_up6vs")
+
+[node name="Flower35" type="Sprite2D" parent="Flowers"]
+z_index = 1
+position = Vector2(-709, 647)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("12_7pfaa")
+
+[node name="Coins" type="Node" parent="."]
+
+[node name="CoinsHorizontal2" type="Node2D" parent="Coins"]
+position = Vector2(116, 270)
+
+[node name="Coin" parent="Coins/CoinsHorizontal2" instance=ExtResource("13_pr4ad")]
+
+[node name="Coin2" parent="Coins/CoinsHorizontal2" instance=ExtResource("13_pr4ad")]
+position = Vector2(30, 0)
+
+[node name="Coin3" parent="Coins/CoinsHorizontal2" instance=ExtResource("13_pr4ad")]
+position = Vector2(60, 0)
+
+[node name="CoinsArc1" type="Node2D" parent="Coins"]
+position = Vector2(-313, -444)
+
+[node name="Coin" parent="Coins/CoinsArc1" instance=ExtResource("13_pr4ad")]
+position = Vector2(-16, 40)
+
+[node name="Coin4" parent="Coins/CoinsArc1" instance=ExtResource("13_pr4ad")]
+position = Vector2(-17, 7)
+
+[node name="Coin7" parent="Coins/CoinsArc1" instance=ExtResource("13_pr4ad")]
+position = Vector2(-17, -28)
+
+[node name="Coin10" parent="Coins/CoinsArc1" instance=ExtResource("13_pr4ad")]
+position = Vector2(-17, -62)
+
+[node name="Coin2" parent="Coins/CoinsArc1" instance=ExtResource("13_pr4ad")]
+position = Vector2(7, 22)
+
+[node name="Coin5" parent="Coins/CoinsArc1" instance=ExtResource("13_pr4ad")]
+position = Vector2(6, -11)
+
+[node name="Coin8" parent="Coins/CoinsArc1" instance=ExtResource("13_pr4ad")]
+position = Vector2(6, -46)
+
+[node name="Coin11" parent="Coins/CoinsArc1" instance=ExtResource("13_pr4ad")]
+position = Vector2(6, -80)
+
+[node name="Coin3" parent="Coins/CoinsArc1" instance=ExtResource("13_pr4ad")]
+position = Vector2(29, 37)
+
+[node name="Coin6" parent="Coins/CoinsArc1" instance=ExtResource("13_pr4ad")]
+position = Vector2(28, 4)
+
+[node name="Coin9" parent="Coins/CoinsArc1" instance=ExtResource("13_pr4ad")]
+position = Vector2(28, -31)
+
+[node name="Coin12" parent="Coins/CoinsArc1" instance=ExtResource("13_pr4ad")]
+position = Vector2(28, -65)
+
+[node name="Coin13" parent="Coins/CoinsArc1" instance=ExtResource("13_pr4ad")]
+position = Vector2(50, 21)
+
+[node name="Coin14" parent="Coins/CoinsArc1" instance=ExtResource("13_pr4ad")]
+position = Vector2(49, -12)
+
+[node name="Coin15" parent="Coins/CoinsArc1" instance=ExtResource("13_pr4ad")]
+position = Vector2(49, -47)
+
+[node name="Coin16" parent="Coins/CoinsArc1" instance=ExtResource("13_pr4ad")]
+position = Vector2(49, -81)
+
+[node name="CoinsArc2" type="Node2D" parent="Coins"]
+position = Vector2(516, -504)
+
+[node name="Coin" parent="Coins/CoinsArc2" instance=ExtResource("13_pr4ad")]
+
+[node name="Coin2" parent="Coins/CoinsArc2" instance=ExtResource("13_pr4ad")]
+position = Vector2(30, -10)
+
+[node name="Coin3" parent="Coins/CoinsArc2" instance=ExtResource("13_pr4ad")]
+position = Vector2(60, 0)
+
+[node name="CoinsHorizontal3" type="Node2D" parent="Coins"]
+position = Vector2(168, 567)
+
+[node name="Coin" parent="Coins/CoinsHorizontal3" instance=ExtResource("13_pr4ad")]
+
+[node name="Coin2" parent="Coins/CoinsHorizontal3" instance=ExtResource("13_pr4ad")]
+position = Vector2(30, 0)
+
+[node name="Coin3" parent="Coins/CoinsHorizontal3" instance=ExtResource("13_pr4ad")]
+position = Vector2(60, 0)
+
+[node name="CoinsVertical1" type="Node2D" parent="Coins"]
+position = Vector2(893.8, 606)
+
+[node name="Coin" parent="Coins/CoinsVertical1" instance=ExtResource("13_pr4ad")]
+
+[node name="Coin2" parent="Coins/CoinsVertical1" instance=ExtResource("13_pr4ad")]
+position = Vector2(30, 0)
+
+[node name="Coin3" parent="Coins/CoinsVertical1" instance=ExtResource("13_pr4ad")]
+position = Vector2(60, 0)
+
+[node name="CoinsHorizontal5" type="Node2D" parent="Coins"]
+position = Vector2(-471, 607)
+
+[node name="Coin" parent="Coins/CoinsHorizontal5" instance=ExtResource("13_pr4ad")]
+
+[node name="Coin2" parent="Coins/CoinsHorizontal5" instance=ExtResource("13_pr4ad")]
+position = Vector2(30, 0)
+
+[node name="Coin3" parent="Coins/CoinsHorizontal5" instance=ExtResource("13_pr4ad")]
+position = Vector2(60, 0)
+
+[node name="CoinsHorizontal6" type="Node2D" parent="Coins"]
+position = Vector2(39, -159)
+
+[node name="Coin" parent="Coins/CoinsHorizontal6" instance=ExtResource("13_pr4ad")]
+
+[node name="Coin2" parent="Coins/CoinsHorizontal6" instance=ExtResource("13_pr4ad")]
+position = Vector2(30, 0)
+
+[node name="Coin3" parent="Coins/CoinsHorizontal6" instance=ExtResource("13_pr4ad")]
+position = Vector2(60, 0)
+
+[node name="CoinsArc5" type="Node2D" parent="Coins"]
+position = Vector2(-807, -229)
+
+[node name="Coin" parent="Coins/CoinsArc5" instance=ExtResource("13_pr4ad")]
+
+[node name="Coin2" parent="Coins/CoinsArc5" instance=ExtResource("13_pr4ad")]
+position = Vector2(30, -10)
+
+[node name="Coin3" parent="Coins/CoinsArc5" instance=ExtResource("13_pr4ad")]
+position = Vector2(60, 0)
+
+[node name="CoinsArc6" type="Node2D" parent="Coins"]
+position = Vector2(637, 140)
+
+[node name="Coin" parent="Coins/CoinsArc6" instance=ExtResource("13_pr4ad")]
+
+[node name="Coin2" parent="Coins/CoinsArc6" instance=ExtResource("13_pr4ad")]
+position = Vector2(30, -10)
+
+[node name="Coin3" parent="Coins/CoinsArc6" instance=ExtResource("13_pr4ad")]
+position = Vector2(60, 0)
+
+[node name="CoinsHorizontal7" type="Node2D" parent="Coins"]
+position = Vector2(634, -231)
+
+[node name="Coin" parent="Coins/CoinsHorizontal7" instance=ExtResource("13_pr4ad")]
+
+[node name="Coin2" parent="Coins/CoinsHorizontal7" instance=ExtResource("13_pr4ad")]
+position = Vector2(30, 0)
+
+[node name="Coin3" parent="Coins/CoinsHorizontal7" instance=ExtResource("13_pr4ad")]
+position = Vector2(60, 0)
+
+[node name="CoinsHorizontal8" type="Node2D" parent="Coins"]
+position = Vector2(-333, 90.0086)
+
+[node name="Coin" parent="Coins/CoinsHorizontal8" instance=ExtResource("13_pr4ad")]
+
+[node name="Coin2" parent="Coins/CoinsHorizontal8" instance=ExtResource("13_pr4ad")]
+position = Vector2(30, 0)
+
+[node name="Coin3" parent="Coins/CoinsHorizontal8" instance=ExtResource("13_pr4ad")]
+position = Vector2(60, 0)
+
+[node name="CoinsHorizontal9" type="Node2D" parent="Coins"]
+position = Vector2(641, 603)
+
+[node name="Coin" parent="Coins/CoinsHorizontal9" instance=ExtResource("13_pr4ad")]
+
+[node name="Coin2" parent="Coins/CoinsHorizontal9" instance=ExtResource("13_pr4ad")]
+position = Vector2(30, 0)
+
+[node name="Coin3" parent="Coins/CoinsHorizontal9" instance=ExtResource("13_pr4ad")]
+position = Vector2(60, 0)
+
+[node name="CoinsHorizontal10" type="Node2D" parent="Coins"]
+position = Vector2(34, 33)
+
+[node name="Coin" parent="Coins/CoinsHorizontal10" instance=ExtResource("13_pr4ad")]
+
+[node name="Coin2" parent="Coins/CoinsHorizontal10" instance=ExtResource("13_pr4ad")]
+position = Vector2(30, 0)
+
+[node name="Coin3" parent="Coins/CoinsHorizontal10" instance=ExtResource("13_pr4ad")]
+position = Vector2(60, 0)
+
+[node name="CoinsHorizontal11" type="Node2D" parent="Coins"]
+position = Vector2(-391, -109)
+
+[node name="Coin" parent="Coins/CoinsHorizontal11" instance=ExtResource("13_pr4ad")]
+
+[node name="Coin2" parent="Coins/CoinsHorizontal11" instance=ExtResource("13_pr4ad")]
+position = Vector2(30, 0)
+
+[node name="Coin3" parent="Coins/CoinsHorizontal11" instance=ExtResource("13_pr4ad")]
+position = Vector2(60, 0)
+
+[node name="Platforms" type="Node" parent="."]
+
+[node name="Platform2" parent="Platforms" instance=ExtResource("3_onitq")]
+position = Vector2(1009, 236)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/Platform2"]
+libraries = {
+"": SubResource("AnimationLibrary_soprt")
+}
+autoplay = "move"
+
+[node name="Platform3" parent="Platforms" instance=ExtResource("3_onitq")]
+position = Vector2(835, -156)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/Platform3"]
+libraries = {
+"": SubResource("AnimationLibrary_muxxu")
+}
+autoplay = "move"
+
+[node name="Enemies" type="Node" parent="."]
+
+[node name="Enemy2" parent="Enemies" instance=ExtResource("15_riqax")]
+z_index = 2
+position = Vector2(-61, 616)
+
+[node name="Enemy3" parent="Enemies" instance=ExtResource("15_riqax")]
+z_index = 2
+position = Vector2(1021, 608)
+
+[node name="Enemy4" parent="Enemies" instance=ExtResource("15_riqax")]
+z_index = 2
+position = Vector2(1245, 562)
+
+[node name="Enemy6" parent="Enemies" instance=ExtResource("15_riqax")]
+z_index = 2
+position = Vector2(-328, 99)
+
+[node name="Enemy7" parent="Enemies" instance=ExtResource("15_riqax")]
+z_index = 2
+position = Vector2(173, -166)
+
+[node name="Enemy8" parent="Enemies" instance=ExtResource("15_riqax")]
+z_index = 2
+position = Vector2(-457, -96)
+
+[node name="Enemy5" parent="Enemies" instance=ExtResource("15_riqax")]
+z_index = 2
+position = Vector2(764, 607)
+
+[node name="Enemy9" parent="Enemies" instance=ExtResource("15_riqax")]
+z_index = 2
+position = Vector2(1107, -218)
+
+[node name="Trees" type="Node" parent="."]
+
+[node name="T1" type="Sprite2D" parent="Trees"]
+z_index = 1
+material = ExtResource("4_uv731")
+position = Vector2(55, 585)
+texture = ExtResource("16_jpq0t")
+
+[node name="T5" type="Sprite2D" parent="Trees"]
+z_index = 1
+material = ExtResource("4_uv731")
+position = Vector2(546, 587)
+texture = ExtResource("17_xvrms")
+
+[node name="Bushes" type="Node" parent="."]
+
+[node name="B1" type="Sprite2D" parent="Bushes"]
+z_index = -2
+material = ExtResource("4_uv731")
+position = Vector2(-466, 619)
+texture = ExtResource("18_54isp")
+
+[node name="B13" type="Sprite2D" parent="Bushes"]
+z_index = -2
+material = ExtResource("4_uv731")
+position = Vector2(218, -141)
+texture = ExtResource("18_54isp")
+
+[node name="B16" type="Sprite2D" parent="Bushes"]
+z_index = -2
+material = ExtResource("4_uv731")
+position = Vector2(-156.25, 624)
+texture = ExtResource("18_54isp")
+
+[node name="B15" type="Sprite2D" parent="Bushes"]
+z_index = -2
+material = ExtResource("4_uv731")
+position = Vector2(-155.25, 641)
+rotation = -2.96008
+scale = Vector2(1, -1)
+texture = ExtResource("18_54isp")
+offset = Vector2(35.3364, -1.40192)
+
+[node name="B4" type="Sprite2D" parent="Bushes"]
+z_index = -2
+material = ExtResource("4_uv731")
+position = Vector2(-420, 638)
+texture = ExtResource("18_54isp")
+
+[node name="B2" type="Sprite2D" parent="Bushes"]
+z_index = -2
+material = ExtResource("4_uv731")
+position = Vector2(33.0001, -139)
+rotation = -3.14159
+scale = Vector2(1, -1)
+texture = ExtResource("18_54isp")
+
+[node name="B6" type="Sprite2D" parent="Bushes"]
+z_index = -2
+material = ExtResource("4_uv731")
+position = Vector2(996.8, 618)
+rotation = -3.14159
+scale = Vector2(1, -1)
+texture = ExtResource("18_54isp")
+
+[node name="B29" type="Sprite2D" parent="Bushes"]
+z_index = -2
+material = ExtResource("4_uv731")
+position = Vector2(900.8, 617)
+rotation = -3.14159
+scale = Vector2(1, -1)
+texture = ExtResource("18_54isp")
+
+[node name="B30" type="Sprite2D" parent="Bushes"]
+z_index = -2
+material = ExtResource("4_uv731")
+position = Vector2(932.8, 634)
+rotation = -3.14159
+scale = Vector2(1, -1)
+texture = ExtResource("18_54isp")
+
+[node name="B23" type="Sprite2D" parent="Bushes"]
+z_index = -2
+material = ExtResource("4_uv731")
+position = Vector2(862.8, 625)
+rotation = -3.14159
+scale = Vector2(1, -1)
+texture = ExtResource("18_54isp")
+
+[node name="B18" type="Sprite2D" parent="Bushes"]
+z_index = -2
+material = ExtResource("4_uv731")
+position = Vector2(-410, 519.009)
+rotation = -2.96008
+scale = Vector2(1, -1)
+texture = ExtResource("18_54isp")
+offset = Vector2(35.3364, -1.40192)
+
+[node name="B20" type="Sprite2D" parent="Bushes"]
+z_index = -2
+material = ExtResource("4_uv731")
+position = Vector2(-204, 129.009)
+rotation = -2.96008
+scale = Vector2(1, -1)
+texture = ExtResource("18_54isp")
+offset = Vector2(35.3364, -1.40192)
+
+[node name="B22" type="Sprite2D" parent="Bushes"]
+z_index = -2
+material = ExtResource("4_uv731")
+position = Vector2(1071, -187.991)
+rotation = -2.96008
+scale = Vector2(1, -1)
+texture = ExtResource("18_54isp")
+offset = Vector2(35.3364, -1.40192)
+
+[node name="B24" type="Sprite2D" parent="Bushes"]
+z_index = -2
+material = ExtResource("4_uv731")
+position = Vector2(284, 644.009)
+rotation = -2.96008
+scale = Vector2(1, -1)
+texture = ExtResource("18_54isp")
+offset = Vector2(35.3364, -1.40192)
+
+[node name="B25" type="Sprite2D" parent="Bushes"]
+z_index = -2
+material = ExtResource("4_uv731")
+position = Vector2(161.754, 630)
+texture = ExtResource("18_54isp")
+
+[node name="B26" type="Sprite2D" parent="Bushes"]
+z_index = -2
+material = ExtResource("4_uv731")
+position = Vector2(162.754, 647)
+rotation = -2.96008
+scale = Vector2(1, -1)
+texture = ExtResource("18_54isp")
+offset = Vector2(35.3364, -1.40192)
+
+[node name="B9" type="Sprite2D" parent="Bushes"]
+z_index = -2
+material = ExtResource("4_uv731")
+position = Vector2(87, 296)
+texture = ExtResource("18_54isp")
+
+[node name="B10" type="Sprite2D" parent="Bushes"]
+z_index = -2
+material = ExtResource("4_uv731")
+position = Vector2(133, 315)
+texture = ExtResource("18_54isp")
+
+[node name="B35" type="Sprite2D" parent="Bushes"]
+z_index = -2
+material = ExtResource("4_uv731")
+position = Vector2(-182, -389.732)
+rotation = -2.96008
+scale = Vector2(1.0213, -1)
+texture = ExtResource("18_54isp")
+offset = Vector2(35.3364, -1.40192)
+
+[node name="Rocks" type="Node" parent="."]
+
+[node name="R1" type="Sprite2D" parent="Rocks"]
+z_index = -2
+position = Vector2(1076, 620)
+texture = ExtResource("19_daexe")
+
+[node name="R8" type="Sprite2D" parent="Rocks"]
+z_index = -2
+position = Vector2(955.8, 630)
+texture = ExtResource("19_daexe")
+
+[node name="R3" type="Sprite2D" parent="Rocks"]
+z_index = -2
+position = Vector2(-368, 623)
+texture = ExtResource("19_daexe")
+
+[node name="R11" type="Sprite2D" parent="Rocks"]
+z_index = -2
+position = Vector2(1170, -200)
+texture = ExtResource("19_daexe")
+
+[node name="Enemy6" parent="Rocks" instance=ExtResource("15_riqax")]
+z_index = 2
+position = Vector2(107, 282)
+
+[node name="R12" type="Sprite2D" parent="Rocks"]
+z_index = -2
+position = Vector2(31.8001, 623)
+texture = ExtResource("19_daexe")
+
+[node name="R5" type="Sprite2D" parent="Rocks"]
+z_index = -2
+position = Vector2(185, 300)
+texture = ExtResource("19_daexe")
+
+[node name="R6" type="Sprite2D" parent="Rocks"]
+z_index = -2
+position = Vector2(-703, 619)
+texture = ExtResource("19_daexe")
+
+[node name="R14" type="Sprite2D" parent="Rocks"]
+z_index = -2
+position = Vector2(443.8, 630)
+texture = ExtResource("19_daexe")
+
+[node name="Hostage" parent="." instance=ExtResource("19_6hydk")]
+position = Vector2(1436, 608)

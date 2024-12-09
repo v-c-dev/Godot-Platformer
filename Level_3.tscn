@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://db1i4lmwj315h"]
+
+[ext_resource type="PackedScene" uid="uid://bf3wnwihk7ymg" path="res://game_singleplayer.tscn" id="1_hm327"]
+[ext_resource type="PackedScene" uid="uid://bak1qxmrw7li" path="res://levels/level3.tscn" id="2_vgbd8"]
+[ext_resource type="PackedScene" uid="uid://vh7pmputa7r3" path="res://player/player.tscn" id="3_d4yjb"]
+
+[node name="Game" instance=ExtResource("1_hm327")]
+
+[node name="Level3" parent="." index="0" instance=ExtResource("2_vgbd8")]
+position = Vector2(0, -5)
+
+[node name="Player" parent="Level3" index="11" instance=ExtResource("3_d4yjb")]
+position = Vector2(190, -728)
+
+[connection signal="coin_collected" from="Level3/Player" to="CanvasLayer/CoinsCounter" method="collect_coin"]

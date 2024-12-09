@@ -1,0 +1,74 @@
+[gd_scene load_steps=4 format=3 uid="uid://d3awok708xbsa"]
+
+[ext_resource type="FontFile" uid="uid://wqrno8lackrm" path="res://gui/kenney_mini_square.ttf" id="1_3iq4n"]
+[ext_resource type="Script" path="res://gui/options_menu.gd" id="2_oxwom"]
+
+[sub_resource type="Theme" id="Theme_f1dn8"]
+default_font = ExtResource("1_3iq4n")
+
+[node name="OptionsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_f1dn8")
+script = ExtResource("2_oxwom")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.294118)
+
+[node name="CenterContainer" type="CenterContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/CenterContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="ColorRect/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Jogo Pausado"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="MuteMusic" type="CheckBox" parent="ColorRect/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Mute Musica"
+
+[node name="MarginContainer2" type="MarginContainer" parent="ColorRect/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="MuteSFX" type="CheckBox" parent="ColorRect/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Mute SFX"
+
+[node name="MarginContainer3" type="MarginContainer" parent="ColorRect/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="Voltar" type="Button" parent="ColorRect/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Voltar
+"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[connection signal="toggled" from="ColorRect/CenterContainer/VBoxContainer/MuteMusic" to="." method="_on_mute_music_toggled"]
+[connection signal="toggled" from="ColorRect/CenterContainer/VBoxContainer/MuteSFX" to="." method="_on_mute_sfx_toggled"]
+[connection signal="pressed" from="ColorRect/CenterContainer/VBoxContainer/Voltar" to="." method="_on_voltar_pressed"]
